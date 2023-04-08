@@ -96,7 +96,7 @@ public class EmployeeManagement {
                     int i = 0;
                     for (Employee e : al) {
                         if (id == e.id) {
-                            System.out.println("\n");
+                            System.out.println(e+"\n");
                             i++;
                         }
                     }
