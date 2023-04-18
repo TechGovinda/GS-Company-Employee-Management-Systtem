@@ -69,8 +69,8 @@ public class EmployeeManagement {
                     + "3). Edit Employee Details\n"
                     + "4). Delete Employee Details\n"
                     + "5). Display all Employee working in this Employee\n"
-                    + "6). EXIT\n"
-                    + "7). PayRoll_Report\n");
+                    + "6). PayRoll_Report\n"
+                    + "7). EXIT\n");
 
             System.out.println("Enter your choice : ");
             int ch = sc.nextInt();
@@ -202,8 +202,42 @@ public class EmployeeManagement {
                     }
                     display(al);
                     break;
+
                 case 6:
-                    System.out.println("hdcjhfiuhhhiudhd");
+
+                    System.out.println("Enter employee ID");
+                    id=sc.nextInt();
+
+
+                    for (Employee e : al) {
+
+                        if (id == e.id) {
+                            double grossPay=e.salary;
+                            double nationalInsurance = grossPay * 0.1;
+                            double tax = 0.0;
+                            if (grossPay > 0 && grossPay <= 50000) {
+                                tax = grossPay * 0.1;
+                            } else if (grossPay > 50000 && grossPay <= 100000) {
+                                tax = grossPay * 0.2;
+                            } else if (grossPay > 100000 && grossPay <= 150000) {
+                                tax = grossPay * 0.3;
+                            } else if (grossPay > 150000) {
+                                tax = grossPay * 0.4;
+
+                            }
+                            double netPay = grossPay - tax - nationalInsurance;
+
+                            System.out.println("---------------Pay slip for " + e.name+"-----------------");
+                            System.out.println("          Gross pay: " + grossPay);
+                            System.out.println("          Tax: " + tax);
+                            System.out.println("          National insurance: " + nationalInsurance);
+                            System.out.println("_______________________________________________");
+                            System.out.println("          Net pay: " +grossPay+"-"+tax+"-"+nationalInsurance+"="+netPay);
+
+
+                        }
+                    }
+
                     break;
                 case 7:
                     try {
