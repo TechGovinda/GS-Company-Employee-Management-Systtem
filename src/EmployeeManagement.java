@@ -214,15 +214,15 @@ public class EmployeeManagement {
                         if (id == e.id) {
                             double grossPay=e.salary;
                             double nationalInsurance = grossPay * 0.1;
-                            double tax = 0.0;
-                            if (grossPay > 0 && grossPay <= 50000) {
-                                tax = grossPay * 0.1;
-                            } else if (grossPay > 50000 && grossPay <= 100000) {
-                                tax = grossPay * 0.2;
-                            } else if (grossPay > 100000 && grossPay <= 150000) {
-                                tax = grossPay * 0.3;
-                            } else if (grossPay > 150000) {
-                                tax = grossPay * 0.4;
+                            double tax=0.0;
+                            if (grossPay > 0 && grossPay <= 300000) {
+                                tax = 0;
+                            } else if (grossPay > 300000 && grossPay <= 500000) {
+                                tax =((grossPay-300000) * 0.1);
+                            } else if (grossPay > 500000 && grossPay <= 1000000) {
+                                tax = (((grossPay-500000) * 0.2)+(0*300000)+(0.1*200000));
+                            } else if (grossPay > 1500000) {
+                                tax = (((grossPay-1000000) * 0.3)+(0*300000)+(0.2*200000));
 
                             }
                             double netPay = grossPay - tax - nationalInsurance;
@@ -231,7 +231,7 @@ public class EmployeeManagement {
                             System.out.println("          Gross pay: " + grossPay);
                             System.out.println("          Tax: " + tax);
                             System.out.println("          National insurance: " + nationalInsurance);
-                            System.out.println("_______________________________________________");
+                            System.out.println("___________________________________________________________");
                             System.out.println("          Net pay: " +grossPay+"-"+tax+"-"+nationalInsurance+"="+netPay);
 
 
